@@ -13,9 +13,11 @@ func main() {
 
 func isPalindrome(x int) bool {
 	converted_int := strconv.Itoa(x)
-
-	new_string := converted_int[len(converted_int)-1:len(converted_int)] + converted_int[1:len(converted_int)-1] + converted_int[0:1]
-	new_int, _ := strconv.Atoi(new_string)
+	var new_str string
+	for i := len(converted_int) - 1; i != -1; i-- {
+		new_str += string(converted_int[i])
+	}
+	new_int, _ := strconv.Atoi(new_str)
 
 	if new_int == x {
 		return true
